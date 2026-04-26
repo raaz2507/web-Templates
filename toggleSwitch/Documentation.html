@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title>Toggle Switch Documentation</title>
+		<link rel="stylesheet" href="../css/Documentation.css" />
+	</head>
+	<body>
+		<main class="container">
+			<section id="details">
+				<h2 style="margin-bottom: 18px">Metal Toggle Switch Documentation</h2>
+
+				<article class="detail" id="toggle-switch-detail">
+					<h3>Overview</h3>
+
+					<p>
+						Reusable JavaScript toggle switch component with custom labels,
+						gradient thumb styling, state events and CSS variable customization.
+					</p>
+
+					<h4>Features</h4>
+
+					<ul>
+						<li>Custom ON / OFF labels</li>
+						<li>Reusable ToggleSwitch class</li>
+						<li>onChange callback support</li>
+						<li>Size and color control using CSS variables</li>
+						<li>Animated metal-style switch UI</li>
+					</ul>
+
+					<h4>Quick Start</h4>
+
+					<ol>
+						<li>Open the template folder.</li>
+						<li>Run <code>ToggleSwitch.html</code> in browser.</li>
+						<li>Import the component in your project.</li>
+						<li>Initialize with a container selector.</li>
+					</ol>
+
+					<h4>Usage Example</h4>
+
+					<pre>
+import {ToggleSwitch} from "./ToggleSwitch.js";
+
+const sw = new ToggleSwitch(".switchContainer");
+
+sw.onChange((state)=>{
+ console.log(state);
+});
+</pre
+					>
+
+					<h4>Custom Labels</h4>
+
+					<pre>
+sw.label = {
+ on:"AUTO",
+ off:"MANUAL"
+};
+</pre
+					>
+
+					<h4>CSS Variables</h4>
+
+					<pre>
+:root{
+ --switchWidth:120px;
+ --switchHeight:50px;
+ --bgColor:#444;
+}
+</pre
+					>
+
+					<h4>API</h4>
+
+					<ul>
+						<li>
+							<code>new ToggleSwitch(selector)</code> Creates a new switch
+							instance
+						</li>
+
+						<li>
+							<code>onChange(callback)</code> Runs callback when state changes
+						</li>
+
+						<li><code>label</code> Updates visible switch labels</li>
+					</ul>
+
+					<h4>Download</h4>
+
+					<a
+						class="btn primary downloadLink"
+						href="./templates/toggle-switch.zip"
+						download>
+						Download ZIP
+					</a>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>

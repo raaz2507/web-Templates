@@ -1,0 +1,129 @@
+@import url("./base.css");
+
+/* Page */
+body {
+	font-family: Arial, sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.7;
+	padding: 40px 18px;
+}
+
+/* Wrapper */
+.container {
+	max-width: 900px;
+	margin: auto;
+}
+
+/* Main title */
+#details h2 {
+	font-size: 2rem;
+	margin-bottom: 25px;
+}
+
+/* Documentation Card */
+.detail {
+	background: var(--card);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+
+	padding: 32px;
+
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Headings */
+.detail h3 {
+	font-size: 1.6rem;
+	margin-bottom: 14px;
+}
+
+.detail h4 {
+	margin-top: 28px;
+	margin-bottom: 12px;
+	font-size: 1.1rem;
+}
+
+/* Text */
+.detail p {
+	color: var(--muted);
+	margin-bottom: 16px;
+}
+
+/* Lists */
+.detail ul,
+.detail ol {
+	padding-left: 24px;
+	margin-bottom: 18px;
+}
+
+.detail li {
+	margin-bottom: 8px;
+}
+
+/* Code blocks */
+pre {
+	background: #111827;
+	color: #e5e7eb;
+
+	padding: 16px;
+	border-radius: 14px;
+
+	overflow: auto;
+	margin: 14px 0 20px;
+
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+
+code {
+	background: #eef2f7;
+	padding: 2px 6px;
+	border-radius: 6px;
+}
+
+/* Buttons */
+.btn {
+	display: inline-block;
+	text-decoration: none;
+
+	padding: 12px 20px;
+	border-radius: 12px;
+
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.primary {
+	background: var(--primary);
+	color: white;
+}
+
+.primary:hover {
+	background: var(--primary-hover);
+	transform: translateY(-2px);
+}
+
+/* Download spacing */
+.downloadLink {
+	margin-top: 10px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+	body {
+		padding: 20px 14px;
+	}
+
+	#details h2 {
+		font-size: 1.6rem;
+	}
+
+	.detail {
+		padding: 22px;
+	}
+
+	pre {
+		font-size: 0.85rem;
+	}
+}

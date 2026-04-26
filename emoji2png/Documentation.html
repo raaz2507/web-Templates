@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title>Emoji2PNG Documentation</title>
+		<link rel="stylesheet" href="../css/Documentation.css" />
+	</head>
+	<body>
+		<main class="container">
+			<section id="details">
+				<h2 style="margin-bottom: 18px">Emoji2PNG Documentation</h2>
+
+				<article class="detail">
+					<h3>Overview</h3>
+
+					<p>
+						Emoji2PNG is a lightweight JavaScript library that converts emoji
+						characters into PNG images programmatically. It supports custom
+						size, transparent background and export-ready output.
+					</p>
+
+					<h4>Features</h4>
+
+					<ul>
+						<li>Convert emoji to PNG image</li>
+						<li>Custom output size</li>
+						<li>Transparent background support</li>
+						<li>Base64 image output</li>
+						<li>Reusable JavaScript API</li>
+					</ul>
+
+					<h4>Quick Start</h4>
+
+					<ol>
+						<li>Download the library.</li>
+						<li>Import emoji2png.js into your project.</li>
+						<li>Pass an emoji and size value.</li>
+						<li>Receive PNG output and use it anywhere.</li>
+					</ol>
+
+					<h4>Usage Example</h4>
+
+					<pre>
+import {emojiToPng} from "./emoji2png.js";
+
+const img = await emojiToPng("🔥",128);
+
+console.log(img);
+</pre
+					>
+
+					<h4>Display Result</h4>
+
+					<pre>
+document.body.innerHTML =
+`&lt;img src="${img}"&gt;`;
+</pre
+					>
+
+					<h4>API</h4>
+
+					<ul>
+						<li>
+							<code>emojiToPng(emoji,size)</code><br />
+							Converts emoji to PNG.
+						</li>
+
+						<li>
+							<code>emoji</code><br />
+							Any emoji character.
+						</li>
+
+						<li>
+							<code>size</code><br />
+							Output image size in pixels.
+						</li>
+					</ul>
+
+					<h4>Example Inputs</h4>
+
+					<pre>
+emojiToPng("😀",64)
+
+emojiToPng("🚀",128)
+
+emojiToPng("🔥",256)
+</pre
+					>
+
+					<h4>Use Cases</h4>
+
+					<ul>
+						<li>Sticker generators</li>
+						<li>Emoji icon systems</li>
+						<li>Social media tools</li>
+						<li>Canvas drawing projects</li>
+						<li>Custom avatar generation</li>
+					</ul>
+
+					<h4>Download</h4>
+
+					<a
+						class="btn primary downloadLink"
+						href="./templates/emoji2png.zip"
+						download>
+						Download ZIP
+					</a>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>
