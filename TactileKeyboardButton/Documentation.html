@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<title>3D Key Switch Documentation</title>
+	<link rel="stylesheet" href="../css/Documentation.css" />
+</head>
+
+<body>
+	<main class="container">
+		<section id="details">
+			<h2 style="margin-bottom:18px">
+				3D Key Switch Documentation
+			</h2>
+
+			<article class="detail">
+
+				<h3>Overview</h3>
+
+				<p>
+					3D Key Switch is a lightweight HTML and CSS component
+					that creates a realistic mechanical button effect using
+					layered shadows, gradients and press animation.
+					It simulates tactile keyboard feedback without JavaScript.
+				</p>
+
+				<h4>Features</h4>
+
+				<ul>
+					<li>Pure HTML and CSS component</li>
+					<li>Realistic 3D press animation</li>
+					<li>Hover lift effect</li>
+					<li>Neumorphic shadow styling</li>
+					<li>Custom size using CSS variables</li>
+					<li>No JavaScript required</li>
+				</ul>
+
+
+				<h4>Quick Start</h4>
+
+				<ol>
+					<li>Download the component.</li>
+					<li>Copy HTML structure into your project.</li>
+					<li>Include the provided CSS styles.</li>
+					<li>Customize width, height and colors.</li>
+				</ol>
+
+
+				<h4>Basic Markup</h4>
+
+<pre>
+&lt;div class="key3d"&gt;
+ Enter
+&lt;/div&gt;
+</pre>
+
+
+				<h4>Usage Example</h4>
+
+<pre>
+:root{
+ --width:10rem;
+ --height:5rem;
+}
+
+.key3d{
+ background:
+ linear-gradient(
+ 135deg,
+ #fff,
+ #d3d3d3
+ );
+}
+</pre>
+
+
+				<h4>Press Effect</h4>
+
+<pre>
+.key3d:active{
+ transform:translateY(5px);
+ color:green;
+}
+</pre>
+
+
+				<h4>API (CSS Variables)</h4>
+
+				<ul>
+
+					<li>
+						<code>--width</code><br>
+						Button width.
+					</li>
+
+					<li>
+						<code>--height</code><br>
+						Button height.
+					</li>
+
+					<li>
+						<code>--paddingX</code><br>
+						Horizontal spacing.
+					</li>
+
+					<li>
+						<code>--paddingY</code><br>
+						Vertical spacing.
+					</li>
+
+					<li>
+						<code>--border-radius</code><br>
+						Corner roundness.
+					</li>
+
+				</ul>
+
+
+				<h4>Example Sizes</h4>
+
+<pre>
+Small
+--width:6rem;
+--height:3rem;
+
+Medium
+--width:10rem;
+--height:5rem;
+
+Large
+--width:14rem;
+--height:6rem;
+</pre>
+
+
+				<h4>Use Cases</h4>
+
+				<ul>
+					<li>Virtual keyboard UI</li>
+					<li>Control panels</li>
+					<li>Calculator buttons</li>
+					<li>Game interfaces</li>
+					<li>Interactive switch components</li>
+				</ul>
+
+
+				<h4>Download</h4>
+
+				<a
+				class="btn primary downloadLink"
+				href="./templates/3dKeySwitch.zip"
+				download>
+
+				Download ZIP
+
+				</a>
+
+			</article>
+
+		</section>
+	</main>
+
+</body>
+</html>
