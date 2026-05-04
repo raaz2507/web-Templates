@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title>PopUp Message Documentation</title>
+		<link rel="stylesheet" href="../css/Documentation.css" />
+	</head>
+	<body>
+		<main class="container">
+			<section id="details">
+				<h2 style="margin-bottom: 18px">PopUp Message System Documentation</h2>
+
+				<article class="detail" id="popup-message-detail">
+					<h3>Overview</h3>
+
+					<p>
+						Reusable JavaScript PopUp Message system for showing dynamic notifications 
+						like success, error, warning, info and custom messages with themes, icons 
+						and auto-dismiss functionality.
+					</p>
+
+					<h4>Features</h4>
+
+					<ul>
+						<li>Multiple message types (Success, Warning, Error, Info)</li>
+						<li>Custom message with image support</li>
+						<li>Auto dismiss with progress bar animation</li>
+						<li>Replace or stack messages</li>
+						<li>CSS variable based theme system</li>
+						<li>Interactive UI (hover animation + close button)</li>
+					</ul>
+
+					<h4>Quick Start</h4>
+
+					<ol>
+						<li>Include your PopUp component file.</li>
+						<li>Add <code>#popUpContainer</code> in HTML (optional).</li>
+						<li>Create instance of <code>popUpMassge</code>.</li>
+						<li>Call message methods as needed.</li>
+					</ol>
+
+					<h4>Usage Example</h4>
+
+					<pre>
+const pm = new popUpMassge(5000);
+
+// Basic message
+pm.createMassage("Hello User");
+
+// Success message
+pm.createSuccess("Data Saved Successfully");
+
+// Error message
+pm.createError("Something went wrong", false, 3000);
+
+// Warning
+pm.createWarning("Check your input");
+
+// Info
+pm.createInfo("System update available");
+</pre>
+
+					<h4>Message with Image</h4>
+
+					<pre>
+pm.createMessageWithImage(
+ "Profile Updated",
+ "./img/profile.jpg",
+ "User Image"
+);
+</pre>
+
+					<h4>Auto Timeout</h4>
+
+					<pre>
+// Set default timeout for all messages
+pm.setDefultAutoTimeOutForAll(10000);
+
+// Override per message
+pm.createSuccess("Saved", false, 3000);
+</pre>
+
+					<h4>Message Method Parameters</h4>
+
+					<ul>
+						<li><code>msg</code> → Message text (string)</li>
+						<li><code>replace</code> → Replace previous messages (true/false)</li>
+						<li><code>removeTime</code> → Auto remove time in ms</li>
+					</ul>
+
+					<h4>Available Methods</h4>
+
+					<ul>
+						<li><code>createMassage()</code> → General message</li>
+						<li><code>createSuccess()</code> → Success message</li>
+						<li><code>createWarning()</code> → Warning message</li>
+						<li><code>createError()</code> → Error message</li>
+						<li><code>createInfo()</code> → Info message</li>
+						<li><code>createMessageWithImage()</code> → Custom image message</li>
+						<li><code>setDefultAutoTimeOutForAll()</code> → Set default timeout</li>
+					</ul>
+
+					<h4>Themes</h4>
+
+					<p>
+						You can apply different themes using predefined classes:
+					</p>
+
+					<ul>
+						<li><code>theme-default</code></li>
+						<li><code>theme-success</code></li>
+						<li><code>theme-warning</code></li>
+						<li><code>theme-error</code></li>
+						<li><code>theme-info</code></li>
+						<li><code>theme-vip</code></li>
+					</ul>
+
+					<h4>Position Control</h4>
+
+					<pre>
+topLeft
+topRight
+bottomLeft
+bottomRight
+</pre>
+
+					<h4>CSS Variables</h4>
+
+					<pre>
+:root{
+ --msgBgColor: #fff;
+ --magBorderColor: #ccc;
+
+ --iconColor: #000;
+
+ --titleColor: #fff;
+ --titleBgColor: #333;
+
+ --textColor: #000;
+ --textBgColor: #f9f9f9;
+
+ --closeBtnColor: red;
+}
+</pre>
+
+					<h4>API</h4>
+
+					<ul>
+						<li>
+							<code>new popUpMassge(time)</code> → Initialize system with default timeout
+						</li>
+
+						<li>
+							<code>setDefultAutoTimeOutForAll(time)</code> → Set global timeout
+						</li>
+
+						<li>
+							<code>createSuccess(msg, replace, time)</code>
+						</li>
+
+						<li>
+							<code>createError(msg, replace, time)</code>
+						</li>
+
+						<li>
+							<code>createWarning(msg, replace, time)</code>
+						</li>
+
+						<li>
+							<code>createInfo(msg, replace, time)</code>
+						</li>
+
+						<li>
+							<code>createMassage(msg, replace, time)</code>
+						</li>
+
+						<li>
+							<code>createMessageWithImage(msg, imgPath, title, replace, time)</code>
+						</li>
+					</ul>
+
+					<h4>Download</h4>
+
+					<a
+						class="btn primary downloadLink"
+						href="./templates/popup-message.zip"
+						download>
+						Download ZIP
+					</a>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>

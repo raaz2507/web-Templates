@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pop Html</title>
+	<!-- <link rel="stylesheet" href="./css/genralStyle.css"> -->
+</head>
+<style>
+		html{
+		width: 100vw;
+	}
+	body{
+		width:100%;
+		height:100%;
+	}
+	*{
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+	}
+	
+	/* setup Theame start */
+	/* :root{
+		
+		--msgBgColor: rgb(255, 245, 219);
+		--magBorderColor:rgb(68, 50, 0);
+
+		--iconColor:rgb(0, 0, 0); 
+
+		--titleColor: rgb(255, 255, 255);
+		--titleBgColor: rgb(119, 107, 0);
+
+		--textColor: rgb(3, 3, 3);
+		--textBgColor: rgb(255, 253, 247);
+		
+		--closeBtnColor: rgb(253, 155, 172);
+	} */
+
+	/* this will set as Defult theme */
+
+	.theme-default{
+		--msgBgColor: rgb(255, 245, 219);
+		--magBorderColor:rgb(68, 50, 0);
+
+		--iconColor:rgb(0, 0, 0); 
+
+		--titleColor: rgb(255, 255, 255);
+		--titleBgColor: rgb(119, 107, 0);
+
+		--textColor: rgb(3, 3, 3);
+		--textBgColor: rgb(255, 253, 247);
+		
+		--closeBtnColor: rgb(253, 155, 172);
+	}
+
+	/* 🔵 General Purpose Theme */
+	.theme-vip {
+		--msgBgColor: rgb(255, 219, 113);
+		--magBorderColor: rgb(101, 101, 101);
+
+		--iconColor: rgb(122, 92, 0);
+
+		--titleColor: rgb(255, 191, 0);
+		--titleBgColor: rgb(122, 92, 0);
+
+		--textColor: rgb(255, 201, 41);
+		--textBgColor: rgb(255, 201, 41);
+
+		--closeBtnColor: rgb(92, 69, 0);
+	}
+
+	/* ✅ Success Theme */
+	.theme-success {
+		--msgBgColor: #e6ffed;
+		--magBorderColor: #34d399;
+
+		--iconColor: #059669;
+
+		--titleColor: #065f46;
+		--titleBgColor: #d1fae5;
+
+		--textColor: #065f46;
+		--textBgColor: #ecfdf5;
+
+		--closeBtnColor: #10b981;
+	}
+
+	/* ⚠️ Warning Theme */
+	.theme-warning {
+		--msgBgColor: #fffbe6;
+		--magBorderColor: #facc15;
+
+		--iconColor: #d97706;
+
+		--titleColor: #92400e;
+		--titleBgColor: #fde68a;
+
+		--textColor: #78350f;
+		--textBgColor: #fef3c7;
+
+		--closeBtnColor: #f59e0b;
+	}
+
+	/* ❌ Error Theme */
+	.theme-error {
+		--msgBgColor: #fee2e2;
+		--magBorderColor: #ef4444;
+
+		--iconColor: #b91c1c;
+
+		--titleColor: #7f1d1d;
+		--titleBgColor: #fecaca;
+
+		--textColor: #991b1b;
+		--textBgColor: #fee2e2;
+
+		--closeBtnColor: #dc2626;
+	}
+
+	/* ℹ️ Info Theme */
+	.theme-info {
+		--msgBgColor: #e0f2fe;
+		--magBorderColor: #3b82f6;
+
+		--iconColor: #2563eb;
+
+		--titleColor: #1e3a8a;
+		--titleBgColor: #bfdbfe;
+
+		--textColor: #1e40af;
+		--textBgColor: #dbeafe;
+
+		--closeBtnColor: #2563eb;
+	}
+
+	/* setup Theame End */
+
+	/* setup possiton class start*/
+	.topLeft{
+		top:1rem;
+		left:1rem;
+	}
+	.topRight{
+		top:1rem;
+		right:1rem;
+	}
+	.bottomLeft{
+		bottom: 1rem;
+		left: 1rem;
+	}
+	.bottomRight{
+		bottom:1rem;
+		right: 1rem;
+	}
+	/* setup possiton class end*/
+	
+	 *{
+		/* border: 1px solid red; */
+	}
+	#popUpContainer{
+		position: absolute;
+		/* 
+		top:50%;
+		left:50%; 
+		transform: translate(-50%, -50%);
+		*/
+		top:0;
+		right:0;
+		width:20rem;
+		min-height: 1rem;
+		height: max-content;
+		padding: 10px 10px 0 10px;
+		/* border: 1px solid red; */	
+		overflow: auto;
+		/* box-shadow: 0 0 13px -3px black; */
+	}
+
+	#popUpContainer .messageContainer{
+		position: relative;
+		margin-bottom: 1rem;
+		border-radius: 10px;
+		/* theme setting */
+		background-color: var(--msgBgColor);
+		border: 1px solid var(--magBorderColor);
+		box-shadow: 0 1px 13px -3px var(--magBorderColor);
+	}
+
+	#popUpContainer .messageContainer:hover{
+		animation: shakeMsgBox .4s ease-in;
+	}
+
+	#popUpContainer .messageContainer .icons{
+		/* width: 10rem; */
+		aspect-ratio: 1/1;
+		padding: 2% 3%;
+		transition: transform .2s ease;
+	}
+
+	#popUpContainer .messageContainer .icons svg{
+		width:100%;
+		height: 100%;
+		/* theme setting */
+		fill: var(--iconColor);
+		filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
+		/* box-shadow: 0 0 13px -3px black; */
+	}
+	#popUpContainer .messageContainer .icons img{
+		width:100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+	#popUpContainer .messageContainer .message{
+		/* max-width: 100%; */
+	}
+	#popUpContainer .messageContainer .message .title{
+		text-align: justify;
+		padding: 6px 12px;
+		font-family: serif;
+		font-size: 1rem;
+		text-transform: capitalize;
+		
+		/* theme setting */
+		color: var(--titleColor);
+		background-color: var(--titleBgColor);
+	}
+	#popUpContainer .messageContainer .message .text{
+		text-align: justify;
+		padding: 6px 12px;
+		font-family: sans-serif;
+		font-size: .9rem;
+	
+		/* theme setting */
+		color: var(--magColor);
+		background-color: var(--textBgColor);
+		/* text-shadow: 1px 1px 3px black; */
+	}
+
+	#popUpContainer .messageContainer .progressBar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 4px;
+		background: rgba(255, 255, 255, 0.8);
+		width: 100%;
+		
+		animation-name: progressTimeout;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		/* animation-duration: 5000ms; */
+		border-radius: 10px;
+		
+		box-shadow: 1px 1px 13px -1px rgb(0, 119, 166);
+	}
+
+	
+	#popUpContainer .messageContainer .closeBtn{
+		/* width:7rem; */
+		/* aspect-ratio: 1/1; */
+		/* text-align: center; */
+		font-size: 1.5rem;
+		font-family: sans-serif;
+		
+		background-color: transparent;
+		border: none;
+		transition: transform .3s ease;
+		/* theme setting */
+		color: var(--closeBtnColor);
+		text-shadow: 0px 1px 2px black;
+	}
+	#popUpContainer .messageContainer .closeBtn:hover{
+		transform: scale(1.2);
+	}
+	/* flex  styling start*/
+	
+	#popUpContainer .messageContainer{
+		display:flex;
+		/* align-content: stretch; */
+		/* gap:1rem; */
+	}
+	#popUpContainer .messageContainer .icons{
+		flex: 0 0 5rem;
+	}
+	#popUpContainer .messageContainer .message{
+		/* flex:0 0 auto; */
+		flex:1;
+	}
+	#popUpContainer .messageContainer button{
+		flex: 0 0 2.5rem;
+	}
+	#popUpContainer .messageContainer .icons{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#popUpContainer .messageContainer .message{
+		display:flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
+	#popUpContainer .messageContainer .message .text{
+		flex:1;
+	}
+	#popUpContainer .messageContainer button{
+		align-self: center;
+		justify-self: center;
+	}
+	/* flex styling end */
+	@keyframes shakeMsgBox{
+		/* 0%{ transform: rotate(2deg);}
+		20%{ transform: rotate(4deg);}
+		40%{ transform: rotate(8deg);}
+		60%{ transform: rotate(-4deg);}
+		80%{ transform: rotate(-2deg);}
+		100%{ transform: rotate(0deg);} */
+		0% { transform: translateX(0); }
+		20% { transform: translateX(-2px); }
+		40% { transform: translateX(2px); }
+		60% { transform: translateX(-2px); }
+		80% { transform: translateX(2px); }
+		100% { transform: translateX(0); }
+	}
+	@keyframes progressTimeout {
+		from {
+			width: 100%;
+		}
+		to {
+			width: 0%;
+		}
+	}
+</style>
+<body>
+	<div id="popUpContainer">
+		<!-- <div class="messageContainer">
+			<div class="icons">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ">
+					<path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+				</svg>
+			
+			</div>
+			<div class="message">
+				<h4 class="title">test</h4>
+				<p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas, illum.</p>
+				<div class="progressBar"></div>
+			</div>
+			<button class="closeBtn">X</button> -->
+		</div>
+	</div>
+<script>
+	document.addEventListener("DOMContentLoaded", ()=>{
+		const pm= new popUpMassge(0);
+		const m1="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas, illum.";
+		const m2="Lorem, ipsum dolor . Voluptas, illum.";
+		/* 
+			//this is messge method peramers
+			==messageMehtod==(msg="", replace=false, removeTime = 0)
+		*/
+
+		pm.createMassage(m1, false , 0); //this create gental Perpose theme Message
+		pm.createSuccess(m2, false, 0); //this create sucess theme mesaage
+		pm.createWarning(" ", false , 0); //this create Warring theme Massge
+		
+		pm.setDefultAutoTimeOutForAll(15000); //this mthod set automatic distraion messsage time
+		pm.createError(m2,false, 3000); //This create Error theme Message
+		pm.createInfo(m1); //this create info theme Massege
+
+
+		const imgPath= './img/no_Imgae.jpg'
+		UsrTitle="photo";
+		pm.createMessageWithImage(m1, imgPath , UsrTitle); //this create whith image and also set image title 
+		/*
+			this this preameter strucher 
+			==createMessageWithImage==(msg="test", imgPath, UsrTitle="",   replace=false, removeTime = 0) 
+		*/
+		});
+
+
+	class popUpMassge{
+		#popUpContainer;
+		#autoTimeOutTime=0;
+		constructor(time){
+			this.#createPopUpContainer();
+			this.setDefultAutoTimeOutForAll(time);
+			//this.#setEvents();
+		}
+		setDefultAutoTimeOutForAll(time){
+			if(typeof time === "number" && time>0){
+				this.#autoTimeOutTime =time;
+			}
+		}
+		#createPopUpContainer(PosTop="5%", posRight="5%" ){
+			this.#popUpContainer = document.getElementById("popUpContainer");
+
+			if (!this.#popUpContainer){
+				this.#popUpContainer = document.createElement('div');
+				this.#popUpContainer.id= "popUpContainer";
+				document.body.appendChild(this.#popUpContainer);
+			}
+
+			//this will  set parent elemet as relative for set won-self relative 
+			this.#popUpContainer.parentElement.style.position = "relative";
+			
+			// console.log(this.#popUpContainer.parentElement );
+		}
+		/*
+		#setEvents(){
+			this.#popUpContainer.addEventListener("click", (event) => {
+				const target = event.target;
+				
+				// 🔴 CLOSE BUTTON CLICKED
+				if (target.classList.contains("closeBtn")) {
+					const messageBox = target.closest(".messageContainer");
+					if (messageBox) messageBox.remove();
+				}
+			});			 
+			
+		}
+			*/
+		
+		#createMassgeBlock(){
+			const elemetMap={
+				//popUpContainer :{type: "div", id:"popUpContainer"},
+				messageContainer :{type: "div", cls:["messageContainer"]},
+				icons :{type: "div", cls:["icons"]},
+				message :{type: "div", cls:["message"]},
+				title :{type: "h4", cls:["title"]},
+				text :{type: "p", cls:["text"]},
+				progressBar: {type: "div", cls:["progressBar"]},
+				closeBtn :{type: "button", cls:["closeBtn"]},
+			};
+			
+			const elmts =  createElementFromMap(elemetMap);
+			createStructure(elmts);
+			
+			return elmts;
+
+			function createElementFromMap(map){
+				const createdElements={}
+
+				for (const key in map){
+					const {type, cls}= map[key];
+					const element = document.createElement(type);
+					cls.forEach((clss)=>{
+						element.classList.add(clss);
+					});
+					createdElements[key] = element;
+				}
+				return createdElements;
+			}
+			function createStructure(elmts){
+				// const messageContainer= document.createDocumentFragment();
+				const {messageContainer, icons, message, title, text, progressBar, closeBtn}=elmts;
+				message.appendChild(title);
+				message.appendChild(text);
+
+				messageContainer.appendChild(icons);
+				messageContainer.appendChild(message);
+				
+				messageContainer.appendChild(progressBar);
+				
+				closeBtn.innerText="X";
+			
+				//set events on meaasge box
+				closeBtn.addEventListener('click', ()=>{
+					messageContainer.remove();
+				});
+				
+				messageContainer.addEventListener("mouseover", ()=>{
+					icons.style.transform="scale(1.1)";
+				});
+				messageContainer.addEventListener("mouseout", () => {
+					icons.style.transform = "scale(1)";
+				});
+
+				//set asseblity on close btn
+				closeBtn.setAttribute("aria-label", "Close message");
+				messageContainer.appendChild(closeBtn);
+			}
+		}
+
+
+		//style 1/6 success
+		createSuccess(msg="", replace=false, removeTime = 0){
+			// ➡️ इससे code crash होने से बचेगा अगर गलत value पास हो जाए।
+			if (!msg || typeof msg !== "string") return;
+
+			const elemts =this.#createMassgeBlock();
+			const {messageContainer, progressBar}=elemts;
+
+			//this will set replace on all privus message box or apaand new message box 
+			this.#replaceOrAppand(messageContainer, replace);
+			const content= {
+				icon : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+													<path d="M323.8 34.8c-38.2-10.9-78.1 11.2-89 49.4l-5.7 20c-3.7 13-10.4 25-19.5 35l-51.3 56.4c-8.9 9.8-8.2 25 1.6 33.9s25 8.2 33.9-1.6l51.3-56.4c14.1-15.5 24.4-34 30.1-54.1l5.7-20c3.6-12.7 16.9-20.1 29.7-16.5s20.1 16.9 16.5 29.7l-5.7 20c-5.7 19.9-14.7 38.7-26.6 55.5c-5.2 7.3-5.8 16.9-1.7 24.9s12.3 13 21.3 13L448 224c8.8 0 16 7.2 16 16c0 6.8-4.3 12.7-10.4 15c-7.4 2.8-13 9-14.9 16.7s.1 15.8 5.3 21.7c2.5 2.8 4 6.5 4 10.6c0 7.8-5.6 14.3-13 15.7c-8.2 1.6-15.1 7.3-18 15.2s-1.6 16.7 3.6 23.3c2.1 2.7 3.4 6.1 3.4 9.9c0 6.7-4.2 12.6-10.2 14.9c-11.5 4.5-17.7 16.9-14.4 28.8c.4 1.3 .6 2.8 .6 4.3c0 8.8-7.2 16-16 16l-97.5 0c-12.6 0-25-3.7-35.5-10.7l-61.7-41.1c-11-7.4-25.9-4.4-33.3 6.7s-4.4 25.9 6.7 33.3l61.7 41.1c18.4 12.3 40 18.8 62.1 18.8l97.5 0c34.7 0 62.9-27.6 64-62c14.6-11.7 24-29.7 24-50c0-4.5-.5-8.8-1.3-13c15.4-11.7 25.3-30.2 25.3-51c0-6.5-1-12.8-2.8-18.7C504.8 273.7 512 257.7 512 240c0-35.3-28.6-64-64-64l-92.3 0c4.7-10.4 8.7-21.2 11.8-32.2l5.7-20c10.9-38.2-11.2-78.1-49.4-89zM32 192c-17.7 0-32 14.3-32 32L0 448c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-224c0-17.7-14.3-32-32-32l-64 0z"/>
+													</svg>`,
+				type: "Success",
+				msge:msg,
+			}
+			this.#setParameters2MsgBox( elemts , content);
+
+			messageContainer.classList.add("theme-success");
+
+			/* this method set timeout on massgae box*/
+			this.#setTimeOutOnMassageContainer(messageContainer, progressBar, removeTime);
+		}
+
+
+		//style 2/6 warning
+		createWarning(msg="", replace=false, removeTime = 0){
+			const elemts =this.#createMassgeBlock();
+			const {messageContainer, progressBar}=elemts;
+
+			//this will set replace on all privus message box or apaand new message box 
+			this.#replaceOrAppand(messageContainer, replace);
+
+			const content= {
+				icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+													<path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+													</svg>`,
+				type: "Warning",
+				msge:msg,
+			}
+			this.#setParameters2MsgBox( elemts , content);
+
+			messageContainer.classList.add("theme-warning");
+
+			/* this method set timeout on massgae box*/
+			this.#setTimeOutOnMassageContainer(messageContainer, progressBar, removeTime);
+		}
+
+		//style 3/6 error
+		createError(msg="", replace=false, removeTime = 0){
+			const elemts =this.#createMassgeBlock();
+			const {messageContainer, progressBar}=elemts;
+			
+			//this will set replace on all privus message box or apaand new message box 
+			this.#replaceOrAppand(messageContainer, replace);
+			
+			
+			const content= {
+				icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+							<path d="M368 128c0 44.4-25.4 83.5-64 106.4l0 21.6c0 17.7-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32l0-21.6c-38.6-23-64-62.1-64-106.4C80 57.3 144.5 0 224 0s144 57.3 144 128zM168 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm144-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM3.4 273.7c7.9-15.8 27.1-22.2 42.9-14.3L224 348.2l177.7-88.8c15.8-7.9 35-1.5 42.9 14.3s1.5 35-14.3 42.9L295.6 384l134.8 67.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3L224 419.8 46.3 508.6c-15.8 7.9-35 1.5-42.9-14.3s-1.5-35 14.3-42.9L152.4 384 17.7 316.6C1.9 308.7-4.5 289.5 3.4 273.7z"/>
+							</svg>`,
+				type:"Error",
+				msge:msg,		
+			}
+			this.#setParameters2MsgBox( elemts , content);
+
+			elemts.messageContainer.classList.add("theme-error");
+
+			/* this method set timeout on massgae box*/
+			this.#setTimeOutOnMassageContainer(messageContainer, progressBar, removeTime);
+		}
+
+		//style 4/6 genral
+		createMassage(msg="", replace=false, removeTime = 0){
+			const elemts =this.#createMassgeBlock();
+			const {messageContainer, progressBar}=elemts;
+			
+			//this will set replace on all privus message box or apaand new message box 
+			this.#replaceOrAppand(messageContainer, replace);
+			
+			const content= {
+				icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+														<path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm177.6 62.1C192.8 334.5 218.8 352 256 352s63.2-17.5 78.4-33.9c9-9.7 24.2-10.4 33.9-1.4s10.4 24.2 1.4 33.9c-22 23.8-60 49.4-113.6 49.4s-91.7-25.5-113.6-49.4c-9-9.7-8.4-24.9 1.4-33.9s24.9-8.4 33.9 1.4zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+													</svg>`,
+				type: "Massage",
+				msge:msg,
+			}
+			this.#setParameters2MsgBox( elemts , content);
+
+			// const themeStyle={
+			// 	msgBgColor:"brown",
+			// 	magBorderColor:"gray", 
+			// 	iconColor:"yellow",
+			// 	titleColor: "gray",
+			// 	titleBgColor: "skyblue",
+			// 	textColor: "black",
+			// 	textBgColor:"pink",
+			// 	closeBtnColor :"red",
+			// };
+			// this.#setTheme(elemts, themeStyle);
+			elemts.messageContainer.classList.add("theme-vip");
+
+			/* this method set timeout on massgae box*/
+			this.#setTimeOutOnMassageContainer(messageContainer,progressBar,  removeTime);
+		}
+
+		//style 5/6 info
+		createInfo(msg="", replace=false, removeTime = 0){
+			const elemts =this.#createMassgeBlock();
+			const {messageContainer, progressBar}=elemts;
+
+			//this will set replace on all privus message box or apaand new message box 
+			this.#replaceOrAppand(messageContainer, replace);
+
+			const content= {
+				icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" >
+													<path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+													</svg>`,
+				type: "Information",
+				msge:msg,
+			}
+			this.#setParameters2MsgBox( elemts , content);
+
+
+			elemts.messageContainer.classList.add("theme-info");
+			
+			/* this method set timeout on massgae box*/ 
+			this.#setTimeOutOnMassageContainer(messageContainer, progressBar, removeTime);
+		}
+
+		//style 6/6 info
+		createMessageWithImage(msg="", imgPath="o.jpg", UsrTitle="Image",   replace=false, removeTime=0){
+			const elemts =this.#createMassgeBlock();
+			const {messageContainer, progressBar}=elemts;
+
+			//this will set replace on all privus message box or apaand new message box 
+			this.#replaceOrAppand(messageContainer, replace);
+			
+			const content= {
+				icon: `<img src="${imgPath}" alt=" mass Image">`,
+				type: UsrTitle,
+				msge:msg,
+			}
+			this.#setParameters2MsgBox( elemts , content);
+		
+			elemts.messageContainer.classList.add("theme-default");
+
+			/* this method set timeout on massgae box*/ 
+			this.#setTimeOutOnMassageContainer(messageContainer, progressBar, removeTime);
+		}
+
+
+		#replaceOrAppand(messageContainer, replace){
+			if (replace){
+				this.#popUpContainer.replaceChildren(messageContainer) ;
+			}else {
+				this.#popUpContainer.appendChild(messageContainer);
+			}
+		}
+
+		#setTimeOutOnMassageContainer(messageContainer, progressBar, removeTime){
+			//this will consider defult timeout for all
+			
+			if ((typeof removeTime === "number" && removeTime<=0) && this.#autoTimeOutTime>0){
+				removeTime=this.#autoTimeOutTime;
+			}
+			
+			//this will set timeout 
+			if (typeof removeTime === "number" && removeTime> 0){
+				
+				//set animation progress bar time out
+				progressBar.style.animationDuration = `${removeTime}ms`;				
+				
+				setTimeout(()=>{
+					messageContainer.remove();
+				}, removeTime);
+			}
+		}
+
+		#setTheme(elemts, themeStyle){
+				const {messageContainer, icons, message, title, text, closeBtn}=elemts;
+				const {msgBgColor, magBorderColor, iconColor, titleColor, titleBgColor, textColor, textBgColor, closeBtnColor}=themeStyle;
+				
+				//set color to message contaner
+				messageContainer.style.backgroundColor=msgBgColor;
+				messageContainer.style.borderColor=magBorderColor;
+				
+				//set color to icon
+				const chNod= icons.childNodes[0];
+				if (chNod && chNod.tagName && chNod.tagName.toLowerCase() === "svg"){
+					chNod.style.fill=iconColor;;
+				}
+
+				//set title color
+				title.style.color= titleColor;
+				title.style.backgroundColor=titleBgColor;
+				
+				//set text color
+				text.style.color=textColor;
+				text.style.backgroundColor=textBgColor;
+
+				//colose Btn Color
+				closeBtn.style.color=closeBtnColor;
+		}
+
+		#setParameters2MsgBox( elemts , content){
+			const { icons, title, text}=elemts;
+			const {icon, type, msge}= content;
+			icons.innerHTML = content.icon;
+			title.innerText = content.type;
+			if (typeof msge === "string"){	text.innerText = msge;}
+		}
+	}
+</script>
+</body>
+
+</html>
